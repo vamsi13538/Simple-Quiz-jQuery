@@ -1,0 +1,199 @@
+body{
+    box-sizing: border-box;
+    caret-color: transparent;
+    background-color: #e6f7ff;
+    position: relative;
+    width: 100%;
+}
+
+header h1 span{
+    color: yellow;
+}
+
+#headerBox{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 0.8rem auto;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    background-color: #333333;
+    color: white;
+}
+
+#SectionBox{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 0.8rem auto;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    background-color: #ffffff;
+}
+
+#QuizForm .question{
+    margin-bottom: 1.2rem;
+}
+
+input[type='submit']{
+    background-color: black;
+    color: whitesmoke;
+    padding: 0.4rem 1rem;
+    border: 0.1rem solid green;
+    text-transform: capitalize;
+    border-radius: 0.4rem;
+}
+
+#ResultsAnimation{
+    position: fixed;
+    top: 90%;
+    left: 64%;
+    width: auto;
+    height: auto;
+    padding: 0rem 1.6rem;
+    /* animation: changeShape 1.6s ease-in-out forwards;
+    opacity: 0;
+    transform: translateX(120%); */
+}
+
+/* @keyframes changeShape {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+} */
+
+.warn{
+    border: 1px solid white;
+    border-radius: 1rem;
+    background-color: #FFFF99;
+    color: black ;
+}
+
+.warn h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0.2rem 0;
+    margin: 0.3rem 0rem;
+}
+
+
+.success{
+    border: 1px solid white;
+    border-radius: 1rem;
+    background-color: #28a745 ;
+    color: #ffffff  ;
+}
+
+.success h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0.2rem 0rem;
+    margin: 0.3rem rem;
+}
+
+.fa-circle-xmark{
+    color: orangered;
+    margin: 0rem 0.2rem;
+    cursor: pointer;
+}
+
+/* Media Queries */
+
+@media (max-width: 1300px){
+    #ResultsAnimation{
+        position: fixed;
+        top: 86%;
+        left: 64%;
+        width: auto;
+        height: auto;
+        padding: 0rem 1.6rem;
+    }
+}
+
+@media (max-width: 1100px){
+    #ResultsAnimation{
+        position: fixed;
+        top: 86%;
+        left: 58%;
+        width: auto;
+        height: auto;
+        padding: 0rem 1.6rem;
+    }
+}
+
+@media (max-width: 990px){
+    #ResultsAnimation{
+        position: fixed;
+        top: 86%;
+        left: 46%;
+        width: auto;
+        height: auto;
+        padding: 0rem 1.6rem;
+    }
+}
+
+@media (max-width: 768px){
+    #ResultsAnimation{
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0rem 1.6rem;
+        text-align: center;
+        margin-bottom: 0.8rem;
+    }
+
+    #btn_submit{
+        width: 100%;
+    }
+
+    #QuizForm{
+        margin: 1.2rem auto;
+    }
+
+    .question h5{
+        font-size: 0.9rem;
+    }
+
+    .question{
+        font-size: 0.7rem;
+    }
+
+    #ResultsAnimation h5{
+        font-size: 0.8rem;
+    }
+
+    code{
+        font-size: 0.8rem;
+    }
+
+    header h1{
+        font-size: 1.8rem;
+    }
+
+    header p{
+        font-size: 0.6rem;
+    }
+
+}
+
+@media (max-width: 430px){
+    #ResultsAnimation{
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0rem 1.6rem;
+        text-align: center;
+        margin-bottom: 0.8rem;
+    }
+
+    #headerBox{
+        margin: 0.8rem 1.4rem;
+    }
+
+    #SectionBox{
+        margin: 0.8rem 1.4rem;
+    }
+
+}
+
+

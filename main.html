@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz | JS</title>
+    <link rel="icon" href="https://img.icons8.com/?size=96&id=osWiBOYLPXb2&format=png" type="image/x-icon">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <script src="https://kit.fontawesome.com/7e99a9e738.js" crossorigin="anonymous"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"
+  ></script>
+  <style>
+    body{
+        box-sizing: border-box;
+        caret-color: transparent;
+        background-color: #e6f7ff;
+        position: relative;
+        width: 100%;
+    }
+    
+    header h1 span{
+        color: yellow;
+    }
+    
+    #headerBox{
+        box-sizing: border-box;
+        border: 1px solid black;
+        margin: 0.8rem auto;
+        padding: 0.5rem;
+        border-radius: 0.8rem;
+        background-color: #333333;
+        color: white;
+    }
+    
+    #SectionBox{
+        box-sizing: border-box;
+        border: 1px solid black;
+        margin: 0.8rem auto;
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+        background-color: #ffffff;
+    }
+    
+    #QuizForm .question{
+        margin-bottom: 1.2rem;
+    }
+    
+    input[type='submit']{
+        background-color: black;
+        color: whitesmoke;
+        padding: 0.4rem 1rem;
+        border: 0.1rem solid green;
+        text-transform: capitalize;
+        border-radius: 0.4rem;
+    }
+    
+    #ResultsAnimation{
+        position: fixed;
+        top: 90%;
+        left: 64%;
+        width: auto;
+        height: auto;
+        padding: 0rem 1.6rem;
+        /* animation: changeShape 1.6s ease-in-out forwards;
+        opacity: 0;
+        transform: translateX(120%); */
+    }
+    
+    /* @keyframes changeShape {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    } */
+    
+    .warn{
+        border: 1px solid white;
+        border-radius: 1rem;
+        background-color: #FFFF99;
+        color: black ;
+    }
+    
+    .warn h5{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        padding: 0.2rem 0;
+        margin: 0.3rem 0rem;
+    }
+    
+    
+    .success{
+        border: 1px solid white;
+        border-radius: 1rem;
+        background-color: #28a745 ;
+        color: #ffffff  ;
+    }
+    
+    .success h5{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        padding: 0.2rem 0rem;
+        margin: 0.3rem rem;
+    }
+    
+    .fa-circle-xmark{
+        color: orangered;
+        margin: 0rem 0.2rem;
+        cursor: pointer;
+    }
+    
+    /* Media Queries */
+    
+    @media (max-width: 1300px){
+        #ResultsAnimation{
+            position: fixed;
+            top: 86%;
+            left: 64%;
+            width: auto;
+            height: auto;
+            padding: 0rem 1.6rem;
+        }
+    }
+    
+    @media (max-width: 1100px){
+        #ResultsAnimation{
+            position: fixed;
+            top: 86%;
+            left: 58%;
+            width: auto;
+            height: auto;
+            padding: 0rem 1.6rem;
+        }
+    }
+    
+    @media (max-width: 990px){
+        #ResultsAnimation{
+            position: fixed;
+            top: 86%;
+            left: 46%;
+            width: auto;
+            height: auto;
+            padding: 0rem 1.6rem;
+        }
+    }
+    
+    @media (max-width: 768px){
+        #ResultsAnimation{
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0rem 1.6rem;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+    
+        #btn_submit{
+            width: 100%;
+        }
+    
+        #QuizForm{
+            margin: 1.2rem auto;
+        }
+    
+        .question h5{
+            font-size: 0.9rem;
+        }
+    
+        .question{
+            font-size: 0.7rem;
+        }
+    
+        #ResultsAnimation h5{
+            font-size: 0.8rem;
+        }
+    
+        code{
+            font-size: 0.8rem;
+        }
+    
+        header h1{
+            font-size: 1.8rem;
+        }
+    
+        header p{
+            font-size: 0.6rem;
+        }
+    
+    }
+    
+    @media (max-width: 430px){
+        #ResultsAnimation{
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0rem 1.6rem;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+    
+        #headerBox{
+            margin: 0.8rem 1.4rem;
+        }
+    
+        #SectionBox{
+            margin: 0.8rem 1.4rem;
+        }
+    
+    }
+    
+    
+    
+</style>
+  </head>
+  <body>
+    <div id="headerBox" class="container d-flex justify-content-center text-center">
+      <header>
+        <h1>Simple <span>Javascript</span> Quiz</h1>
+        <p>Test your Javascript Basics Fundamental Knowledge!</p>
+      </header>
+    </div>
+       <section>
+            <div id="SectionBox" class="container">
+                <div id="ResultsAnimation" class="results warn success">
+                    <!-- <h5>Please answer question no :  &#128128; <i class="fa-regular fa-circle-xmark"></i></h5> -->
+                </div>
+                <form name="quizforms" id="QuizForm">
+                  <div class="question">
+                    <h5>1. What does the following JavaScript code output?</h5>
+                    <code>
+                        <h6>console.log(2 + "2" + 2);</h6>
+                    </code>
+                    <input type="radio" name="q1" value="a"> a. "222"<br>
+                    <input type="radio" name="q1" value="b"> b. 6<br>
+                    <input type="radio" name="q1" value="c"> c. "4"<br>
+                    <input type="radio" name="q1" value="d"> d. "22"<br>
+                  </div>
+                  <div class="question">
+                    <h5>2. What will be the output of the following code?</h5>
+                    <code>
+                        <h6>var x = 10; function foo() { console.log(x); var x = 20; } foo();</h6>
+                    </code>
+                    <input type="radio" name="q2" value="a"> a. 10<br>
+                    <input type="radio" name="q2" value="b"> b. 20<br>
+                    <input type="radio" name="q2" value="c"> c. undefined<br>
+                    <input type="radio" name="q2" value="d"> d. ReferenceError<br>
+                </div>
+                
+                <div class="question">
+                    <h5>3. What is the result of the following expression in JavaScript?</h5>
+                    <code>
+                        <h6>"10" == 10</h6>
+                    </code>
+                    <input type="radio" name="q3" value="a"> a. true<br>
+                    <input type="radio" name="q3" value="b"> b. false<br>
+                    <input type="radio" name="q3" value="c"> c. TypeError<br>
+                    <input type="radio" name="q3" value="d"> d. NaN<br>
+                </div>
+                
+                <div class="question">
+                    <h5>4. What is the output of the following code?</h5>
+                    <code>
+                        <h6>var a = [1, 2, 3]; var b = [1, 2, 3]; console.log(a === b);</h6>
+                    </code>
+                    <input type="radio" name="q4" value="a"> a. true<br>
+                    <input type="radio" name="q4" value="b"> b. false<br>
+                    <input type="radio" name="q4" value="c"> c. undefined<br>
+                    <input type="radio" name="q4" value="d"> d. ReferenceError<br>
+                </div>
+                
+                <div class="question">
+                    <h5>5. What does the following code snippet output?</h5>
+                    <code>
+                        <h6>console.log(typeof null);</h6>
+                    </code>
+                    <input type="radio" name="q5" value="a"> a. "null"<br>
+                    <input type="radio" name="q5" value="b"> b. "object"<br>
+                    <input type="radio" name="q5" value="c"> c. "undefined"<br>
+                    <input type="radio" name="q5" value="d"> d. "string"<br>
+                </div>
+                <input id="btn_submit" type="submit" value="submit">                
+                </form>
+            </div>
+       </section>
+
+    <script>
+       // Create all elements
+const form = document.querySelector('form');
+const total = 5;
+var score = 0;
+const results = document.querySelector('.results');
+
+// Add event listener on forms
+form.addEventListener('submit', SubmitAnswers);
+
+// $('.fa-circle-xmark').on('click', function(){
+//     // $('.results').hide();
+//     console.log('clicked');
+// })
+
+function SubmitAnswers(e){
+    e.preventDefault();
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
+    const q1 = document.forms["quizforms"]["q1"].value;
+    const q2 = document.forms["quizforms"]["q2"].value;
+    const q3 = document.forms["quizforms"]["q3"].value;
+    const q4 = document.forms["quizforms"]["q4"].value;
+    const q5 = document.forms["quizforms"]["q5"].value;
+
+    // using loop to check the answers selected or not
+    for(let i=1; i<=total; i++){
+        if(eval('q'+i) == null || eval('q'+i) == ''){
+            // console.log(`Please answer question no : ${i}`);
+            results.classList.remove('success');
+            results.classList.add('warn');
+            results.classList.add('animate__animated', 'animate__rubberBand');
+            results.innerHTML = `
+                <h5>⚠️ Please answer question no : ${i} <i id="close" class="fa-regular fa-circle-xmark"></i></h5>
+            `;
+
+            const closeIcon = document.getElementById('close');
+            closeIcon.addEventListener('click', function() {
+                // Remove the parent h5 element
+                this.parentNode.remove();
+            });
+
+            return false;
+        }
+    }
+
+    // using loop to evaluate answers
+    var keys = ["a","c","a","b","b"];
+    let emotion = 0;
+
+    for(let i=1; i<=total; i++){
+        if(eval('q'+i) == keys[i-1]){
+            score++;
+        }
+    }
+
+    // adding emoji
+    if(score == 5){
+        emotion = 128516;
+    }if(score == 4){
+        emotion = 128526;
+    }else if(score == 3){
+        emotion = 128524;
+    }else if(score == 2){
+        emotion = 128531;
+    }else if(score == 1){
+        emotion = 128532;
+    }
+
+    // console.log(`Your score is ${score} out of ${total}`);
+    results.classList.add('success');
+    results.classList.add('animate__animated', 'animate__heartBeat');
+    results.innerHTML = `
+            <h5>Your are score is ${score} out of ${total} &#${emotion};	
+            </h5>
+    `;
+
+
+    // resetting all radio buttons
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(button => {
+        button.checked = false;
+    } );
+
+
+    return false;
+}
+    </script>   
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
